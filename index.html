@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cat Facts 🐱</title>
+</head>
+<body>
+
+  <h1>Cat Facts API</h1>
+  <button onclick="getCat()">Yeni Kedi Bilgisi</button>
+  <p id="fact"></p>
+
+  <script>
+    function getCat() {
+      fetch("https://catfact.ninja/fact")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("fact").innerText = data.fact;
+        })
+        .catch(err => {
+          document.getElementById("fact").innerText = "Hata oluştu";
+        });
+    }
+  </script>
+
+</body>
+</html>
